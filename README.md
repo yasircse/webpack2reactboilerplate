@@ -1,6 +1,6 @@
  
 # React Boilerplate using Webpack 2 
-Objective : To design a boilerplate for a React js Project using Webpack 2
+<h4>Objective</h4> : To design a boilerplate for a React js Project using Webpack 2
 Level: intermediate 
 Webpack version: 2.6.1
 Resources: Official Webpack Documentation  
