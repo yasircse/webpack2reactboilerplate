@@ -1,43 +1,43 @@
  
 # React Boilerplate using Webpack 2 
 <strong>Objective</strong> : To design a boilerplate for a React js Project using Webpack 2<br/>
-<strong>Level</strong>: intermediate 
-<strong>Webpack version</strong>: 2.6.1
-<strong>Resources</strong>: Official Webpack Documentation  
-<strong>Editor</strong>: Vs code
+<strong>Level</strong>: intermediate<br/> 
+<strong>Webpack version</strong>: 2.6.1<br/>
+<strong>Resources</strong>: Official Webpack Documentation<br/>  
+<strong>Editor</strong>: Vs codec
  
  
-Introduction: Webpack 2 is JavaScript  module bundler. It bundles all the third party dependencies into one single file. Using Webpack will make the app more scalable and keep the code more organized. 
+<strong>Introduction</strong>: Webpack 2 is JavaScript  module bundler. It bundles all the third party dependencies into one single file. Using Webpack will make the app more scalable and keep the code more organized.<br/> 
  
-Step1: initialize the app
-Command: npm init.
+<strong>Step1</strong>: initialize the app<br/>
+<strong>Command</strong>: npm init.<br/>
  
-Step2 : install webpack 
-Command: npm install --save-dev webpack
+<strong>Step2</strong>: install webpack<br/> 
+<strong>Command</strong>: npm install --save-dev webpack<br/>
  
-Step3: Hiding “node_modules ” , folder  and “vs code config file” from the project. Go to preference > settings and  copy paste the excluding items to the right side.
+<strong>Step3</strong>: Hiding “node_modules ” , folder  and “vs code config file” from the project. Go to preference > settings and  copy paste the excluding items to the right side.<br/>
  
-Step4: Create “dist” and “src ” then create file “app.js” inside “src“ now run the followin command.
+<strong>Step4</strong>: Create “dist” and “src ” then create file “app.js” inside “src“ now run the following command.<br/>
  
-Command: webpack ./src/app.js ./dist/app.bundle.js - p 
+<strong>Command</strong>: <code>webpack ./src/app.js ./dist/app.bundle.js - p</code><br/> 
  
-By running above command webpack will bundled the app.js as app.bundle.js into “dist” folder from “src” folder.
+By running above command webpack will bundled the app.js as app.bundle.js into “dist” folder from “src” folder.<br/>
  
-Step5: Minification: minification means to remove the white spaces from the file.
+<strong>Step5</strong>: Minification: minification means to remove the white spaces from the file.<br/>
  
-In order to minify the “app.bundle.js” we will add -p (production) with following command
+In order to minify the “app.bundle.js” we will add -p (production) with following command.<br/>
  
-Command: webpack ./src/app.js ./dist/app.bundle.js - p 
+<strong>Command</strong>: <code>webpack ./src/app.js ./dist/app.bundle.js - p</code><br/> 
  
-Step6: --watch mode: enables the webpack to monitor every change and updates it to “app.bundle.js” file  accordingly.
- In order to set the webpack to watch mode add --watch to following command
+<strong>Step6</strong>: <strong>--watch mode</strong> enables the webpack to monitor every change and updates it to “app.bundle.js” file  accordingly.<br/>
+ In order to set the webpack to watch mode add --watch to following command<br/>
  
-Command: webpack ./src/app.js ./dist/app.bundle.js - p 
+<strong>Command</strong>: <code>webpack ./src/app.js ./dist/app.bundle.js - p</code><br/> 
  
-Step7: create the “webpack.config.jjs ” in the root of the project in order to define the configuration for webpack
+<strong>Step7</strong>: create the “webpack.config.js ” in the root of the project in order to define the advanced configuration for webpack.<br/>
  
-Step8: First thing to be specified inside is “entry” which means from where the webpack start bundling and the “output” which means to where webpack keeps the bundled file. In our case the “entry” is “app.js” and “output” is “app.bundle.js”.
- 
+<strong>Step8</strong>: First thing to be specified inside is “entry” which means from where the webpack start bundling and the “output” which means to where webpack keeps the bundled file. In our case the “entry” is “app.js” and “output” is “app.bundle.js”.<br/>
+<code> 
 module.exports={
 entry:’./src/app.js’
 Output:{
@@ -46,25 +46,23 @@ filename: ‘app.bundle.js’,
  
 } 
 }
+</code><br/>
  
-Step9: Add two scripts inside “package.json”. The scripts are “dev” and “prod”.
+<strong>Step9</strong>: Add two scripts inside “package.json”. The scripts are “dev” and “prod”.<br/>
  
-“dev”:”webpack -d --watch ”, d stands for development
-“prod”:”webpack -p”
+“dev”:”webpack -d --watch ”, d stands for development<br/>
+“prod”:”webpack -p”<br/>
  
-Earlier we were writing long commands to achieve bundling and minification of the file now the bundling and minification can be achieved by following commands.
+Earlier we were writing long commands to achieve bundling and minification of the file now the bundling and minification can be achieved by following commands.<br/>
  
-Command:  npm run dev…...will run the webpack into watch mode  
-Command:  npm run prod…...will run the webpack without watch mode and it will minify the app.bundle.js
- 
- 
- 
- 
-Step10: install “html-webpack-plugin”: this will automatically generate the index.html template for us.
+<strong>Command</strong>:  "npm run dev" will run the webpack into watch mode.<br/>  
+<strong>Command</strong>:  "npm run prod" will run the webpack without watch mode and it will minify the app.bundle.js.<br/>
+  
+<strong>Step 10</strong>: install “html-webpack-plugin”: this will automatically generate the index.html template for us.<br/>
  
  
-Oldway: create “index.html” in “dist” folder. Inside “index.html” create the html5 markup and add script with its source as “app.bundle.js”
- 
+<strong>Old way</strong>: create “index.html” in “dist” folder. Inside “index.html” create the html5 markup and add script with its source as “app.bundle.js”<br/>
+ <code>
 <!DOCTYPE html>
 <html>
   <head>
@@ -76,6 +74,7 @@ Oldway: create “index.html” in “dist” folder. Inside “index.html” cr
       <script type="text/javascript" src="app.bundle.js></script>
   </body>
 </html>
+ </code><br />
  
 New way: the html plugin is now generated through html-webpack plugin
 Command: npm install --save -dev html webpack plugin 
