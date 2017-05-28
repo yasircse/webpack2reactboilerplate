@@ -62,31 +62,18 @@ Earlier we were writing long commands to achieve bundling and minification of th
  
  
 <strong>Old way</strong>: create “index.html” in “dist” folder. Inside “index.html” create the html5 markup and add script with its source as “app.bundle.js”<br/>
- 
-<p><!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title>My Project</title>
-  </head>
-  <body>
-    <div id='root'></div>
-     <script type="text/javascript" src="app.bundle.js></script>
-  </body>
-</html></p>
 
+<strong>New way</strong>: the html plugin is now generated through html-webpack plugin
+<strong>Command</strong>: npm install --save -dev html webpack plugin 
+
+And then configure it inside the wepack.config.js<br/>
+When you will run the app the index.html will be generated.<br/>
+The configuration of the html-webpack-plugin<br/>
  
-New way: the html plugin is now generated through html-webpack plugin
-Command: npm install --save -dev html webpack plugin 
-And then configure it inside the wepack.config.js
-When you will run the app the index.html will be generated
+<strong>1st</strong>: Import it to webpack.config.js<br/>
+<code>const HtmlWebpackPlugin = require('html-webpack-plugin');</code><br/>
  
-The configuration of the html-webpack-plugin
- 
-1st: Import it to webpack.config.js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
- 
-2nd: place it into plugins section 
+<strong>2nd</strong>: place it into plugins section<br/> 
  
 plugins: [
  
@@ -100,44 +87,44 @@ plugins: [
         }),
     ]
  
-Webpack 2 style, css, sass-loader
  
-Loaders: Loaders allows to preprocess files as you load them. They also transform files from different lnguages.
-To include css files we need “css-loader”
+<strong>Webpack 2 style, css, sass-loader</strong><br/>
  
- 
-Step 11: install css-loader
-Command: npm install --save -dev css-loader
- 
-After installing “css-loader ” and configuring it in “webpack.config.js” create “app.css” inside the “src” folder and  create some styles inside “app.css” finally import it to “app.js” 
-Now if we run the project in the browser the project will run successfully, however the styles will not be visible. In order to solve this problem we nee style loader.
+<strong>Loaders</strong>: Loaders allows to preprocess files as you load them. They also transform files from different lnguages.
+To include css files we need “css-loader”<br/>
  
  
-Step 12: install “style-loader” 
-Command: npm install --save-dev style-loader
-After installing style-loader, configure it to “webpack.config.js”
-Now if you run the app the styles would be visible.
+<strong>Step 11</strong>: install css-loader<br/>
+<strong>Command</strong>: npm install --save -dev css-loader<br/>
  
-Step 13: install sass-loader and node-sass to handle css in sass.
-Command: npm install --save-dev sass-loader node-sass
-After convert the app.css to app.scss
+After installing “css-loader ” and configuring it in “webpack.config.js” create “app.css” inside the “src” folder and  create some styles inside “app.css” finally import it to “app.js”<br/> 
+Now if we run the project in the browser the project will run successfully, however the styles will not be visible. In order to solve this problem we nee style loader.<br/>
  
-Step 14: install “ExtractTextPlugin” in order bundle styles into one single file and export it to dist folder.
+<strong>Step 12</strong>: install “style-loader”<br/> 
+<strong>Command</strong>: npm install --save-dev style-loader<br/>
+After installing style-loader, configure it to “webpack.config.js”<br/>
+Now if you run the app the styles would be visible.<br/>
+ 
+<strong>Step 13</strong>: install sass-loader and node-sass to handle css in sass.<br/>
+<strong>Command</strong>: npm install --save-dev sass-loader node-sass.<br/>
+After convert the app.css to app.scss.<br/>
+ 
+<strong>Step 14</strong>: install “ExtractTextPlugin” in order bundle styles into one single file and export it to dist folder.
 Currently the styles ar inline.
-Command: npm install --save-dev extract-text-webpack-plugin
+<strong>Command</strong>: npm install --save-dev extract-text-webpack-plugin
 After installing the plugin, import it to “webpack.config.js” as follow,
  
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+<code>const ExtractTextPlugin = require('extract-text-webpack-plugin');</code>
  
-After importing it, update the plugins section inside “webpack.config.js” with following code.
+After importing it, update the plugins section inside “webpack.config.js” with following code.<br/>
 new ExtractTextPlugin({
             filename: 'style.css',
             disable: !isProd,
             allChunks: true
         }),
  
-Step 15: install webpack dev server
-command : npm install --save-dev webpack-dev-server
+<strong>Step 15</strong>: install webpack dev server
+<strong>command</strong>: npm install --save-dev webpack-dev-server
 Update package.json: “dev”:”webpack-dev-server”
 Webpack Dev Server: It provides the live reloading. It reloads the page every time the changes are made.
 Configure the webpack dev server inside “webpack.config.js” as follow
@@ -150,12 +137,13 @@ devServer: {
  
 The main difference between Webpack and Webpack Dev Server is that in Webpack renders and writes the files directly on the disk whereas in Webpack Dev Server the files are served from memory.
  
-Step 16: install React, ReactDOM and all necessary babel needed to load javascript also add HMR.
-Command: npm install --save react react-dom
-Command: npm install --save-dev babel-cli babel-loader babel-core babel-preset-es2015 babel-preset-react
-Command: npm install --save react-hot-loader
+<strong>Step 16</strong>: install React, ReactDOM and all necessary babel needed to load javascript also add HMR.
+<strong>Command</strong>: npm install --save react react-dom
+<strong>Command</strong>: npm install --save-dev babel-cli babel-loader babel-core babel-preset-es2015 babel-preset-react
+<strong>Command</strong>: npm install --save react-hot-loader
 After installing the above packages create the file “index.js” in the “src” folder and write the following code inside the file   
- 
+
+<code><p>
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
@@ -181,7 +169,7 @@ if(module.hot){
         render(App)
     });
 }
- 
+ </p></code>
  
  
 After that update the “app.js” as follow
@@ -244,11 +232,11 @@ entry: [
  After that update the plugins section with 
  
  
-Step 17: Setting up production and development environment so that we can use ”extract-text-webpack-plugin” in production mode and and HMR in development mode. We are doing this because ”extract-text-webpack-plugin” does not work with HMR.
+<strong>Step 17</strong>: Setting up production and development environment so that we can use ”extract-text-webpack-plugin” in production mode and and HMR in development mode. We are doing this because ”extract-text-webpack-plugin” does not work with HMR.
  
  
 Since we are using windows therefore we have to install
-Command: npm install --save-dev cross-env
+<strong>Command</strong>: npm install --save-dev cross-env
  
 Now let’s make some changes in “package.json” scripts as follow
  "scripts": {
@@ -276,10 +264,10 @@ Pass the “cssConfig” inside the loaders module.
 Now if we are in development mode the HMR will be functional and in production mode the ”extract-text-webpack-plugin” will be functional.
  
  
-Step 18: Adding Linter to the project. Linters are very important for a project
-Command: npm install --save-dev eslint
-Command: npm install --save-dev eslint-loader
-Command: npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
+<strong>Step 18</strong>: Adding Linter to the project. Linters are very important for a project
+<strong>Command</strong>: npm install --save-dev eslint
+<strong>Command</strong>: npm install --save-dev eslint-loader
+<strong>Command</strong>: npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
 
 Now create eslintrc.json in the root folder and write following code
 
@@ -288,5 +276,5 @@ Now create eslintrc.json in the root folder and write following code
 }
 
  
-That's it………..
+                                                          <strong>That's it………..</strong>
  
