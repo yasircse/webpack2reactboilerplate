@@ -1,10 +1,10 @@
  
 # React Boilerplate using Webpack 2 
-<strong>Objective</strong> : To design a boilerplate for a React js Project using Webpack 2
-Level: intermediate 
-Webpack version: 2.6.1
-Resources: Official Webpack Documentation  
-Editor: Vs code
+<strong>Objective</strong> : To design a boilerplate for a React js Project using Webpack 2<br/>
+<strong>Level</strong>: intermediate 
+<strong>Webpack version</strong>: 2.6.1
+<strong>Resources</strong>: Official Webpack Documentation  
+<strong>Editor</strong>: Vs code
  
  
 Introduction: Webpack 2 is JavaScript  module bundler. It bundles all the third party dependencies into one single file. Using Webpack will make the app more scalable and keep the code more organized. 
