@@ -3,7 +3,7 @@
 <strong>Objective</strong> : To design a boilerplate for a React js Project using Webpack 2<br/>
 <strong>Level</strong>: intermediate<br/> 
 <strong>Webpack version</strong>: 2.6.1<br/>
-<strong>Resources</strong>: Official Webpack Documentation<br/>  
+<strong>Resources</strong>: Official Webpack Documentation
 <strong>Editor</strong>: Vs codec
  
  
@@ -62,8 +62,8 @@ Earlier we were writing long commands to achieve bundling and minification of th
  
  
 <strong>Old way</strong>: create “index.html” in “dist” folder. Inside “index.html” create the html5 markup and add script with its source as “app.bundle.js”<br/>
- <code>
-<!DOCTYPE html>
+ 
+<p><!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
@@ -71,10 +71,10 @@ Earlier we were writing long commands to achieve bundling and minification of th
   </head>
   <body>
     <div id='root'></div>
-      <script type="text/javascript" src="app.bundle.js></script>
+     <script type="text/javascript" src="app.bundle.js></script>
   </body>
-</html>
- </code><br />
+</html></p>
+
  
 New way: the html plugin is now generated through html-webpack plugin
 Command: npm install --save -dev html webpack plugin 
